@@ -1,11 +1,15 @@
-# never commit tools/extracted game files
+# Tools / extracted game data
 _WORKSPACE/tools/
-_WORKSPACE/exports/
-*.cpk
-*.ar.00
-*.arl
-*.pdb
-*.log
+_WORKSPACE/**/extracted/
+_WORKSPACE/**/base_game_files/
 
-# keep release clean
-_RELEASE/**/_trash/
+*.cpk
+
+# Avoid committing large binary build outputs (choose one approach)
+# If you want repo = source only:
+_RELEASE/
+# OR if you want repo = includes release mod:
+# (don’t ignore _RELEASE, but ignore temp folders)
+**/HedgehogConverter-temp-*/
+**/*.pdb
+**/*.log
