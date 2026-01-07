@@ -16,4 +16,5 @@ _WORKSPACE/
 **/HedgehogConverter-temp-*/
 **/*.pdb
 **/*.log
+**/*.zip
 
