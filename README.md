@@ -1,65 +1,52 @@
 # GHZ200 Custom Stage Sandbox (Sonic Generations)
 
-Development repository for a **stage replacement mod** that targets **GHZ Act 2 (Modern)** (`ghz200`).
-Goal: iterate quickly on custom terrains (and later objects/props) with a repeatable pipeline.
+A custom stage replacement mod for **Sonic Generations (2011) PC** that replaces **Green Hill Zone – Act 2 (Modern)** (`ghz200`) with a free-roam sandbox stage.
 
-If you’re looking for the playable build, see: `_RELEASE/`
+This repo focuses on **project structure + documentation + reproducible pipeline**. Large binaries (exports, intermediate assets, base game files) should stay out of Git by default.
 
----
+## What this mod replaces
 
-## Repo layout
+- **Stage slot:** `ghz200` (Green Hill Zone Act 2 – Modern)
+
+## Release folder structure (what players install)
+
+Your published mod should look like:
 
 ```
-_WORKSPACE/                   # dev stuff (sources + exports)
-  blender/                    # .blend source files
-  exports/
-    maps/
-      /<map_name>/            # self-contained export per map experiment
-        map.fbx
-        collision.fbx
-        collision.phy.hkx
-        _tex/
-  notes/
-    PIPELINE.md               # the build + injection steps (source of truth)
-
-_RELEASE/                     # what HedgeModManager loads (ship this)
-base_game_files/              # local extracted game files (gitignored)
+GHZ200_CustomStage_Sandbox/
+  mod.ini
+  README.md
+  CREDITS.md
+  PERMISSIONS.md
+  disk/
+    bb/
+      Packed/
+        ghz200/
+          ghz200.ar.00
+          ghz200.arl
+      #ghz200.ar.00
+      #ghz200.arl
 ```
 
----
+## Build / edit workflow
 
-## Quick start (dev)
+See: **PIPELINE.md**
 
-1) Pick a map folder:
-   `_WORKSPACE/exports/maps/<map_name>/`
+## Third-party assets & permissions
 
-2) Export from Blender:
-   - Visual: `map.fbx` (Path Mode: Strip Path)
-   - Collision: `collision.fbx`
-   - Textures in: `_tex/`
+This mod includes third-party assets that must be credited and/or used with permission.
+See: **CREDITS.md** and **PERMISSIONS.md**.
 
-3) Run converters + inject collision/set data.
+## Disclaimer
 
-**Follow:** `_WORKSPACE/notes/PIPELINE.md`
+Sonic Generations is © SEGA / Sonic Team.  
+This is a fan-made mod, provided **non-commercially**, and is not affiliated with SEGA.
 
----
+## Versioning
 
-## Version control notes
-
-- Do **not** commit: tools, extracted base game archives, converter temp folders.
-- Be careful with third‑party textures/models: only commit/ship assets that allow redistribution.
-- Attribution for external assets belongs in:
-  - `_RELEASE/CREDITS.md` (also OK to mirror in repo root if you want)
+- Repo tags/releases should match the mod version in `mod.ini`.
+- Keep a simple changelog in **CHANGELOG.md**.
 
 ---
 
-## License / legal
-
-This is a fan-made mod project and is not affiliated with SEGA.
-You must own Sonic Generations to use it. Please respect third-party asset licenses (see CREDITS.md).
-
----
-
-## Credits
-
-See `_RELEASE/CREDITS.md`.
+If you're a player: download the **release .zip** from GameBanana (or GitHub Releases if you use them) and install via **HedgeModManager**.

@@ -3,6 +3,8 @@ _WORKSPACE/tools/
 _WORKSPACE/**/exports/**
 _WORKSPACE/**/base_game_files/
 _WORKSPACE/**/blender/
+_WORKSPACE/**
+_WORKSPACE/
 
 *.cpk
 
@@ -14,3 +16,4 @@ _WORKSPACE/**/blender/
 **/HedgehogConverter-temp-*/
 **/*.pdb
 **/*.log
+
